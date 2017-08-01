@@ -1,4 +1,42 @@
+<!DOCTYPE html>
 <html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#login").click(function(){
+		if ($("#username").val() == "valid") 
+		{
+         $("#auth").hide();
+         $("#main").show();
+        }  else  {
+         	$("#error").html('Failed to login');
+         	$("#username").val("");
+         	$("#pwd").val("");
+        }
+    });
+    $("#logout").click(function(){
+        $("#auth").show();
+        $("#main").hide();
+    });
+});
+</script>
+</head>
 <body>
-<div id='auth'></div>
+<div id='error'></div>
+<div id='auth'>
+User Name:<input id=username type=text /><br/>
+User Password<input id=pwd type=password />
+<button id=login>Login</button>
+</div>
+
+<div id='main' style="display:none;">
+ <button id=logout >Logout</button>
+  <div id=mainmenu>
+    <h1> The following are the options</h1>
+    <button id=products>Items</button><br />
+    <button id=order>Order</button><br />
+    <button id=info>Information</button><br />
+  </div>
+ </div>
 </body></html>
